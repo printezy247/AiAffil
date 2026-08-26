@@ -12,6 +12,9 @@ export function SiteNav() {
           <Link href="/#tools" className="hover:underline">
             Browse Tools
           </Link>
+          <Link href="/brokers" className="hover:underline">
+            Exchanges &amp; Bots
+          </Link>
           <Link href="/disclosure" className="hover:underline">
             Disclosure
           </Link>

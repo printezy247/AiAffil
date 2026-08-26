@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "binance",
+    "name": "Binance",
+    "category": "Crypto Exchange",
+    "url": "https://www.binance.com/",
+    "tagline": "The world's largest crypto exchange by trading volume.",
+    "feeHighlight": "Spot fees from 0.10% (lower with BNB)",
+    "bestFor": "Widest coin selection",
+    "isAffiliateLink": false
+  },
+  {
+    "slug": "bybit",
+    "name": "Bybit",
+    "category": "Crypto Exchange",
+    "url": "https://www.bybit.com/",
+    "tagline": "Popular derivatives and spot exchange with a strong mobile app.",
+    "feeHighlight": "Spot fees from 0.10%",
+    "bestFor": "Derivatives / futures traders",
+    "isAffiliateLink": false
+  },
+  {
+    "slug": "okx",
+    "name": "OKX",
+    "category": "Crypto Exchange",
+    "url": "https://www.okx.com/",
+    "tagline": "Full-featured exchange with a large altcoin selection and Web3 wallet.",
+    "feeHighlight": "Spot fees from 0.08%",
+    "bestFor": "Altcoin variety",
+    "isAffiliateLink": false
+  },
+  {
+    "slug": "coinbase",
+    "name": "Coinbase",
+    "category": "Crypto Exchange",
+    "url": "https://www.coinbase.com/",
+    "tagline": "The most beginner-friendly, regulated U.S. exchange.",
+    "feeHighlight": "Higher fees, but simplest onboarding",
+    "bestFor": "First-time U.S. buyers",
+    "isAffiliateLink": false
+  },
+  {
+    "slug": "3commas",
+    "name": "3Commas",
+    "category": "Trading Bot",
+    "url": "https://3commas.io/",
+    "tagline": "Automated trading bots (DCA, grid, smart trade) that connect to your exchange.",
+    "feeHighlight": "Free tier, paid plans from ~$22/mo",
+    "bestFor": "Hands-off automated strategies",
+    "isAffiliateLink": false
+  },
+  {
+    "slug": "cryptohopper",
+    "name": "Cryptohopper",
+    "category": "Trading Bot",
+    "url": "https://www.cryptohopper.com/",
+    "tagline": "Cloud-based crypto trading bot with a strategy marketplace and backtesting.",
+    "feeHighlight": "Free tier, paid plans from ~$19/mo",
+    "bestFor": "Copying pre-built strategies",
+    "isAffiliateLink": false
+  },
+  {
+    "slug": "pionex",
+    "name": "Pionex",
+    "category": "Trading Bot",
+    "url": "https://www.pionex.com/",
+    "tagline": "Exchange with 16+ free built-in trading bots (grid, DCA, arbitrage).",
+    "feeHighlight": "0.05% trading fee, bots included free",
+    "bestFor": "Free built-in bots, no subscription",
+    "isAffiliateLink": false
+  },
+  {
+    "slug": "tradingview",
+    "name": "TradingView",
+    "category": "Charting & Signals",
+    "url": "https://www.tradingview.com/",
+    "tagline": "The industry-standard charting platform with alerts, screeners, and social ideas.",
+    "feeHighlight": "Free tier, Pro from ~$14.95/mo",
+    "bestFor": "Charting and technical analysis",
+    "isAffiliateLink": false
+  }
+]

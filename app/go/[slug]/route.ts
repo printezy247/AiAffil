@@ -1,14 +1,17 @@
 import { NextResponse } from "next/server";
 import { getProductBySlug } from "@/lib/products";
+import { brokers } from "@/lib/brokers";
 
 // Every outbound affiliate click routes through here instead of linking
 // straight to the tool's site. Two benefits for a beginner:
 //   1. One place to swap in real click analytics later (see README "Track clicks").
 //   2. If a tool changes its affiliate link, you only update data/products.json —
 //      every page that links to /go/that-tool keeps working.
+// Checks the tool catalog first, then the broker/exchange list (data/brokers.json)
+// so both use this same tracked redirect.
 export async function GET(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = getProductBySlug(slug) ?? brokers.find((b) => b.slug === slug);
 
   if (!product) {
     return NextResponse.redirect(new URL("/", _request.url), 307);
