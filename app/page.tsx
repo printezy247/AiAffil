@@ -1,6 +1,7 @@
 import { getAllCategories, getFeaturedProducts, products } from "@/lib/products";
 import { ProductBrowser } from "@/components/ProductBrowser";
 import { ProductCard } from "@/components/ProductCard";
+import { EmailCapture } from "@/components/EmailCapture";
 import { siteConfig } from "@/lib/site-config";
 
 export default function Home() {
@@ -28,9 +29,13 @@ export default function Home() {
         </section>
       )}
 
-      <section id="tools">
+      <section id="tools" className="mb-16">
         <h2 className="mb-5 text-xl font-semibold">Browse all tools</h2>
         <ProductBrowser products={products} categories={categories} />
+      </section>
+
+      <section className="mx-auto max-w-xl">
+        <EmailCapture />
       </section>
     </div>
   );

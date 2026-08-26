@@ -57,6 +57,8 @@ export default async function AdminLinksPage() {
 
   const allEntries = [...products, ...brokers];
   const counts = await kv.listWithPrefix("clicks:");
+  const subscribersRaw = await kv.get("subscribers");
+  const subscribers: string[] = subscribersRaw ? JSON.parse(subscribersRaw) : [];
 
   const rows = allEntries
     .map((entry) => ({
@@ -105,6 +107,23 @@ export default async function AdminLinksPage() {
             ))}
           </tbody>
         </table>
+      )}
+
+      <h2 className="mb-2 mt-14 text-2xl font-bold tracking-tight">Email Subscribers</h2>
+      <p className="mb-6 text-black/60 dark:text-white/60">
+        {subscribers.length} subscriber{subscribers.length === 1 ? "" : "s"}
+        {!process.env.CONVERTKIT_API_KEY && " — stored locally, not yet connected to an email sender. See the feature 13 setup guide."}
+      </p>
+      {subscribers.length === 0 ? (
+        <p className="text-sm text-black/50 dark:text-white/50">No subscribers yet.</p>
+      ) : (
+        <ul className="flex flex-col gap-1 text-sm">
+          {subscribers.map((email) => (
+            <li key={email} className="border-b border-black/5 py-1.5 dark:border-white/5">
+              {email}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
