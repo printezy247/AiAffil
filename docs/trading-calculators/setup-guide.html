@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Trading Calculators — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Trading Calculators</h1>
+  <p class="subtitle">Feature 6 of 13 — position size and compound interest calculators, both live already.</p>
+
+  <div class="badge-list">
+    <span class="badge">Zero configuration</span>
+    <span class="badge">Runs entirely in the browser</span>
+    <span class="badge">No API keys</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>Two interactive calculators, both already deployed and working with no setup:</p>
+  <table>
+    <tr><th>Page</th><th>What it calculates</th></tr>
+    <tr><td><code>/tools/position-size-calculator</code></td><td>How many units to buy given account size, risk % per trade, entry price, and stop-loss price</td></tr>
+    <tr><td><code>/tools/compound-interest-calculator</code></td><td>Projected growth of a starting amount plus monthly contributions at a given return rate</td></tr>
+  </table>
+  <p>Both live under a <code>/tools</code> index page, linked in the site nav as "Calculators," and both end in a call-to-action linking to your <code>/brokers</code> comparison page — turning a useful free tool into a lead into a paid signup.</p>
+
+  <h2><span class="num">2</span>Nothing to configure</h2>
+  <div class="callout good">
+    <strong>These work immediately after deploying</strong>
+    All math runs client-side in the visitor's browser — no server calls, no API keys, no environment variables.
+    There's nothing to set up.
+  </div>
+
+  <h2><span class="num">3</span>Customizing</h2>
+  <ul>
+    <li><strong>Change the CTA destination:</strong> edit the "Ready to place the trade?" link in <code>app/tools/position-size-calculator/page.tsx</code> or <code>app/tools/compound-interest-calculator/page.tsx</code> — point it at a specific broker's <code>/go/[slug]</code> link instead of the general <code>/brokers</code> page if you want to push one platform.</li>
+    <li><strong>Add another calculator:</strong> the shared input/result styling lives in <code>components/calculators/shared.tsx</code> — copy the pattern in <code>PositionSizeCalculator.tsx</code> for a new one (e.g. a leverage or DCA calculator).</li>
+  </ul>
+
+  <h2><span class="num">4</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>app/tools/page.tsx</code></td><td>Index page listing both calculators</td></tr>
+    <tr><td><code>components/calculators/PositionSizeCalculator.tsx</code></td><td>Position size logic + UI</td></tr>
+    <tr><td><code>components/calculators/CompoundInterestCalculator.tsx</code></td><td>Compound growth logic + UI</td></tr>
+    <tr><td><code>components/calculators/shared.tsx</code></td><td>Shared input field / result row styling</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 6: Trading Calculators</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Gated Telegram Bot — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Gated / Paid Telegram Bot</h1>
+  <p class="subtitle">Feature 4 of 13 — free preview, then sell full access via Telegram Stars or a card payment.</p>
+
+  <div class="badge-list">
+    <span class="badge">No payment processor required</span>
+    <span class="badge">Telegram Stars built-in</span>
+    <span class="badge">Optional Stripe card upsell</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    A different bot process from the daily poster (feature 1) — this one stays running and listens for messages.
+    When someone sends <code>/start</code>, they see 3 free sample tools with a "🔓 Unlock All Tools" button. Tapping
+    it opens a native Telegram payment sheet charging <strong>Telegram Stars</strong> — Telegram's own in-app
+    currency for digital goods. No Stripe account, no payment processor sign-up, nothing to configure beyond
+    picking a price. Once paid, the buyer is remembered and instantly gets a button into the full Mini App
+    (feature 3).
+  </p>
+
+  <div class="callout info">
+    <strong>Why Stars, not a normal payment gateway?</strong>
+    Telegram requires digital goods/services sold inside a bot to use Stars, not external processors, per their
+    bot platform policy. Stars are bought by users with real money (via Apple/Google in-app purchase) and you
+    withdraw them as real currency from your bot's balance in @BotFather. It also means zero setup — no
+    merchant account needed to start selling today.
+  </div>
+
+  <h2><span class="num">2</span>Where this bot has to run</h2>
+  <div class="callout warn">
+    <strong>This one can't run on Vercel or GitHub Actions</strong>
+    Unlike the daily poster, this bot must stay running continuously to listen for messages — Vercel's serverless
+    functions shut down between requests, and GitHub Actions jobs have a time limit. Run it on: your own
+    always-on computer, a small VPS (~$5/mo), or a free-tier host like Railway or Render that supports
+    long-running processes.
+  </div>
+
+  <h2><span class="num">3</span>Set the price and start it</h2>
+  <ol>
+    <li>Add <code>TELEGRAM_BOT_TOKEN</code> to your environment (same bot/token as feature 1).</li>
+    <li>Optionally set <code>TELEGRAM_STARS_PRICE</code> (defaults to 99 Stars, roughly $2 — adjust to taste).</li>
+    <li>Run: <code>node scripts/telegram-bot.mjs</code></li>
+    <li>Message your bot <code>/start</code> to test the free preview and unlock flow.</li>
+  </ol>
+
+  <h2><span class="num">4</span>Optional: add a card payment option</h2>
+  <p>To let buyers pay with a real card instead of Stars (useful outside Telegram's ecosystem, e.g. for real-currency accounting):</p>
+  <div class="grid-3">
+    <div class="step">
+      <div class="step-num">STEP 1</div>
+      <div class="step-title">Create a Payment Link</div>
+      In your Stripe Dashboard → Payment Links → create one for your unlock price.
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 2</div>
+      <div class="step-title">Add the webhook</div>
+      Stripe Dashboard → Developers → Webhooks → Add endpoint: <code>https://yourdomain.com/api/webhooks/stripe</code>, event: <code>checkout.session.completed</code>.
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 3</div>
+      <div class="step-title">Set 3 env vars</div>
+      <code>STRIPE_PAYMENT_LINK</code>, <code>STRIPE_SECRET_KEY</code>, <code>STRIPE_WEBHOOK_SECRET</code> — deploy, and a "Pay with card" button appears automatically.
+    </div>
+  </div>
+
+  <h2><span class="num">5</span>Persisting who's unlocked</h2>
+  <p>
+    Set <code>UPSTASH_REDIS_REST_URL</code> / <code>UPSTASH_REDIS_REST_TOKEN</code> (free tier at
+    <a href="https://console.upstash.com">console.upstash.com</a>) so unlock status survives bot restarts. Without
+    it, unlocks are remembered in a local file only — fine for testing, risky for production.
+  </p>
+
+  <h2><span class="num">6</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>scripts/telegram-bot.mjs</code></td><td>The long-running bot: preview, Stars checkout, unlock delivery</td></tr>
+    <tr><td><code>app/api/webhooks/stripe/route.ts</code></td><td>Handles Stripe's payment confirmation (optional path)</td></tr>
+    <tr><td><code>scripts/lib/kv.mjs</code></td><td>Tracks which Telegram users are unlocked</td></tr>
+  </table>
+
+  <h2><span class="num">7</span>Troubleshooting</h2>
+  <table>
+    <tr><th>Problem</th><th>Fix</th></tr>
+    <tr><td>Bot doesn't respond to /start</td><td>Confirm the script is actually still running — check your host's process logs</td></tr>
+    <tr><td>Unlock button does nothing</td><td>Check the terminal running the bot for a Telegram API error printed to console</td></tr>
+    <tr><td>Payment succeeds but no confirmation message</td><td>Check your host allows outbound network requests, and that the bot process didn't crash mid-payment</td></tr>
+    <tr><td>Unlocks disappear after restart</td><td>Set up Upstash (step 5) — the local file fallback doesn't survive most host redeploys</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 4: Gated Telegram Bot</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>

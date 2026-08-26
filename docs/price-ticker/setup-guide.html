@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Live Price Ticker — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Live Crypto Price Ticker</h1>
+  <p class="subtitle">Feature 7 of 13 — live prices for 7 major coins, no API key required.</p>
+
+  <div class="badge-list">
+    <span class="badge">No API key</span>
+    <span class="badge">Free forever (CoinGecko public API)</span>
+    <span class="badge">Auto-refreshes every 60s</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    A new page at <code>/markets</code> shows live USD prices and 24-hour change for Bitcoin, Ethereum, Solana,
+    BNB, XRP, Dogecoin, and Cardano. It fetches from CoinGecko's free public API directly in the visitor's
+    browser and refreshes automatically every 60 seconds. Nothing to configure — it works the moment the site is
+    deployed.
+  </p>
+
+  <div class="callout info">
+    <strong>Note on testing</strong>
+    This was built and verified against CoinGecko's documented, stable public API format. The sandbox this was
+    built in has restricted network access, so the live fetch itself couldn't be tested end-to-end from here —
+    confirm it's showing real numbers once your site is deployed (it should, immediately). If it ever shows
+    "temporarily unavailable," that's the built-in graceful fallback working correctly, not a bug — CoinGecko's
+    free tier has a modest rate limit under heavy traffic.
+  </div>
+
+  <h2><span class="num">2</span>Customizing</h2>
+  <ul>
+    <li><strong>Change which coins show:</strong> edit the <code>COINS</code> list at the top of <code>components/PriceTicker.tsx</code> — use any CoinGecko coin ID (find them at <a href="https://www.coingecko.com">coingecko.com</a>, in a coin's URL).</li>
+    <li><strong>Change the refresh rate:</strong> edit <code>REFRESH_MS</code> in the same file. Keep it at 60 seconds or higher to stay well within CoinGecko's free rate limit.</li>
+    <li><strong>Add stocks instead of crypto:</strong> would need a different API (CoinGecko is crypto-only) — ask if you want this added; most stock APIs require a free API key.</li>
+  </ul>
+
+  <h2><span class="num">3</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>components/PriceTicker.tsx</code></td><td>Fetches and displays the live prices</td></tr>
+    <tr><td><code>app/markets/page.tsx</code></td><td>The page it's embedded on, plus CTA links to /brokers and the calculators</td></tr>
+  </table>
+
+  <h2><span class="num">4</span>Troubleshooting</h2>
+  <table>
+    <tr><th>Problem</th><th>Fix</th></tr>
+    <tr><td>Shows "temporarily unavailable"</td><td>Usually a transient CoinGecko rate limit — refresh after a minute. If persistent, check your hosting provider isn't blocking outbound requests.</td></tr>
+    <tr><td>Wrong coins shown</td><td>Double-check the coin IDs in <code>COINS</code> match CoinGecko's exact ID format (e.g. <code>binancecoin</code>, not <code>bnb</code>)</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 7: Live Price Ticker</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>
