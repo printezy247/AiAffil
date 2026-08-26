@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { categorySlug, getProductBySlug, getRelatedProducts, products } from "@/lib/products";
+import { getComparisonsForProduct } from "@/lib/comparisons";
 import { ProductCard } from "@/components/ProductCard";
 
 export function generateStaticParams() {
@@ -24,6 +25,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
   if (!product) notFound();
 
   const related = getRelatedProducts(product);
+  const comparisons = getComparisonsForProduct(product.slug);
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -45,6 +47,23 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
       >
         Visit {product.name} →
       </a>
+
+      {comparisons.length > 0 && (
+        <div className="mt-10 flex flex-wrap gap-2">
+          {comparisons.map((c) => {
+            const other = c.a.slug === product.slug ? c.b : c.a;
+            return (
+              <Link
+                key={c.slug}
+                href={`/compare/${c.slug}`}
+                className="rounded-full border border-black/10 px-3 py-1.5 text-xs font-medium text-black/70 transition hover:bg-black/5 dark:border-white/15 dark:text-white/70 dark:hover:bg-white/10"
+              >
+                vs {other.name} →
+              </Link>
+            );
+          })}
+        </div>
+      )}
 
       {related.length > 0 && (
         <div className="mt-16">

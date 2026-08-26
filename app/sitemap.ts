@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { categorySlug, getAllCategories, products } from "@/lib/products";
+import { getAllComparisonPairs } from "@/lib/comparisons";
 import { siteConfig } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -28,5 +29,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticPages, ...categoryPages, ...toolPages];
+  const comparisonPages: MetadataRoute.Sitemap = getAllComparisonPairs().map((p) => ({
+    url: `${base}/compare/${p.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.4,
+  }));
+
+  return [...staticPages, ...categoryPages, ...toolPages, ...comparisonPages];
 }
