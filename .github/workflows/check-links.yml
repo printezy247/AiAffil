@@ -1,0 +1,19 @@
+name: Weekly broken link check
+
+# Pings every tool/broker URL once a week and fails visibly (red X in the
+# Actions tab, shows up as a notification if you've starred/watch the repo)
+# if any are dead. Free — runs on GitHub's own servers.
+on:
+  schedule:
+    - cron: "0 9 * * 1" # 09:00 UTC every Monday
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check-links.mjs
