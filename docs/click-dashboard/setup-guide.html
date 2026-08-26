@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Click Dashboard — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Click Dashboard</h1>
+  <p class="subtitle">Feature 10 of 13 — see which tools are actually getting clicked, password-protected.</p>
+
+  <div class="badge-list">
+    <span class="badge">One password to set</span>
+    <span class="badge">Also tracks email subscribers</span>
+    <span class="badge">Free Upstash tier recommended</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    Every &quot;Visit&quot; click across the whole site (tools, brokers) now increments a counter. A private
+    dashboard at <code>/admin/links</code> shows every tool sorted by click count, plus your email subscriber list
+    underneath — one password-gated page for both.
+  </p>
+
+  <h2><span class="num">2</span>Turn it on</h2>
+  <ol>
+    <li>Set <code>ADMIN_DASHBOARD_PASSWORD</code> to anything you want (e.g. a random passphrase) as an environment variable.</li>
+    <li>Redeploy (env var changes need a redeploy to take effect — this page is built to always check fresh, but the variable itself has to be present at deploy time).</li>
+    <li>Visit <code>yourdomain.com/admin/links</code> and log in with that password.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Set up persistent storage or counts will reset</strong>
+    Without <code>UPSTASH_REDIS_REST_URL</code> / <code>UPSTASH_REDIS_REST_TOKEN</code> (free tier at
+    <a href="https://console.upstash.com">console.upstash.com</a>), click counts and subscriber emails are stored
+    in a local file that most hosting providers wipe on every redeploy. The dashboard shows a visible warning
+    banner whenever this isn't configured, so you'll always know which mode you're in.
+  </div>
+
+  <h2><span class="num">3</span>Security note</h2>
+  <p>
+    This uses a simple shared-password cookie, not a hashed session or user accounts — appropriate for a low-stakes
+    internal dashboard (click counts, email addresses you already collected) on a small personal site. Don't reuse
+    this exact pattern for anything handling payment info or other sensitive data.
+  </p>
+
+  <h2><span class="num">4</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>app/go/[slug]/route.ts</code></td><td>Increments the click counter on every outbound click</td></tr>
+    <tr><td><code>app/admin/links/page.tsx</code></td><td>Login form + the dashboard itself</td></tr>
+    <tr><td><code>lib/admin-auth.ts</code></td><td>Password check + cookie handling</td></tr>
+    <tr><td><code>lib/kv.ts</code></td><td>Where the counts and subscriber list are actually stored</td></tr>
+  </table>
+
+  <h2><span class="num">5</span>Troubleshooting</h2>
+  <table>
+    <tr><th>Problem</th><th>Fix</th></tr>
+    <tr><td>Page says "not configured"</td><td>Set <code>ADMIN_DASHBOARD_PASSWORD</code> and redeploy</td></tr>
+    <tr><td>Login doesn't work</td><td>Double-check for typos/extra spaces in the password env var</td></tr>
+    <tr><td>Clicks show 0 even after testing</td><td>Confirm you clicked an actual <code>/go/...</code> link, not a direct link to the tool's site</td></tr>
+    <tr><td>Counts reset after a deploy</td><td>Set up Upstash — see the warning above</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 10: Click Dashboard</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>

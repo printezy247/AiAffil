@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Broken-Link Checker — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Broken-Link Checker</h1>
+  <p class="subtitle">Feature 11 of 13 — catches dead affiliate links automatically, once a week, for free.</p>
+
+  <div class="badge-list">
+    <span class="badge">No setup required</span>
+    <span class="badge">Free weekly GitHub Action</span>
+    <span class="badge">Runs manually any time</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    A script checks every URL in <code>data/products.json</code> and <code>data/brokers.json</code> — 173 links
+    today — and reports any that are dead (404, timeout, DNS failure, etc.). It's already scheduled to run
+    automatically every Monday via GitHub Actions, completely free.
+  </p>
+
+  <h2><span class="num">2</span>Nothing to configure</h2>
+  <p>
+    This is live the moment the repo is pushed to GitHub — no secrets, no environment variables. You'll see it
+    listed in your repo's <strong>Actions</strong> tab as &quot;Weekly broken link check.&quot;
+  </p>
+
+  <h2><span class="num">3</span>Run it manually any time</h2>
+  <div class="grid-3">
+    <div class="step">
+      <div class="step-num">FROM YOUR COMPUTER</div>
+      <div class="step-title">Command line</div>
+      <code>node scripts/check-links.mjs</code>
+    </div>
+    <div class="step">
+      <div class="step-num">FROM GITHUB</div>
+      <div class="step-title">Actions tab</div>
+      Go to Actions → &quot;Weekly broken link check&quot; → Run workflow
+    </div>
+    <div class="step">
+      <div class="step-num">WHEN IT FAILS</div>
+      <div class="step-title">What you'll see</div>
+      A red ✕ in the Actions tab and a list of exactly which tools/URLs are broken in the run's log
+    </div>
+  </div>
+
+  <h2><span class="num">4</span>Fixing what it finds</h2>
+  <p>
+    Open <code>data/products.json</code> or <code>data/brokers.json</code>, find the flagged entry by name, and
+    either fix the URL or remove the entry if the tool has shut down.
+  </p>
+
+  <h2><span class="num">5</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>scripts/check-links.mjs</code></td><td>The checker itself</td></tr>
+    <tr><td><code>.github/workflows/check-links.yml</code></td><td>The free weekly scheduler</td></tr>
+  </table>
+
+  <div class="callout info">
+    <strong>False positives</strong>
+    Some sites block automated HEAD/GET requests entirely (bot protection) even though the page works fine for a
+    real visitor. If a flagged link opens fine in your browser, it's a false positive — no action needed.
+  </div>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 11: Broken-Link Checker</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>

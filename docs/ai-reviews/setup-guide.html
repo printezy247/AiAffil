@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AI-Written Tool Reviews — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>AI-Written Tool Review Pages</h1>
+  <p class="subtitle">Feature 12 of 13 — long-form reviews for SEO and buyer confidence, 5 written already, 160 more ready to generate.</p>
+
+  <div class="badge-list">
+    <span class="badge">5 reviews included</span>
+    <span class="badge">Scale to the rest with your own API key</span>
+    <span class="badge">Never overwrites existing reviews</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    Five tools (Syllaby, Go High Level, Replit, Canva, Notion) already have an in-depth, balanced review — what the
+    tool does, one genuine strength, one honest limitation, and a &quot;best for&quot; verdict — displayed on their
+    tool page. A script scales this pattern to any other tool in your catalog using your own Anthropic API key.
+  </p>
+
+  <div class="callout info">
+    <strong>Written honestly, on purpose</strong>
+    These reviews explicitly avoid inventing pricing, statistics, or competitor comparisons the tool's own
+    description doesn't support. That's a deliberate constraint in the generation prompt — the goal is genuine
+    buyer-helpful content, not hype copy that could damage trust if it turns out to be wrong.
+  </div>
+
+  <h2><span class="num">2</span>Generate more reviews</h2>
+  <ol>
+    <li>Get an API key at <a href="https://console.anthropic.com">console.anthropic.com</a> (pay-as-you-go, no subscription).</li>
+    <li>Set <code>ANTHROPIC_API_KEY</code> in your environment.</li>
+    <li>Generate specific tools: <code>node scripts/generate-reviews.mjs syllaby canva notion</code></li>
+    <li>Or generate all 160 remaining at once: <code>node scripts/generate-reviews.mjs --all</code></li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Cost awareness</strong>
+    Each review is one API call to Claude Opus 5. Generating all 160 remaining tools at once will cost real money
+    (a few dollars, not huge, but not free) — check <a href="https://console.anthropic.com">console.anthropic.com</a>
+    for current pricing before running <code>--all</code>. Running it for specific tools a few at a time costs
+    proportionally less and lets you review quality before scaling up.
+  </div>
+
+  <h2><span class="num">3</span>How it avoids duplicate work</h2>
+  <p>
+    The script checks <code>data/reviews.json</code> before generating anything — a tool that already has a review
+    (including the 5 written by hand) is always skipped, so you can re-run <code>--all</code> safely as you add new
+    tools to the catalog without wasting API calls regenerating what's already there.
+  </p>
+
+  <h2><span class="num">4</span>Editing a review</h2>
+  <p>
+    Every review is plain text in <code>data/reviews.json</code>, keyed by tool slug. Edit the <code>title</code>
+    or <code>body</code> field directly — paragraphs are separated by a blank line in the JSON string.
+  </p>
+
+  <h2><span class="num">5</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>data/reviews.json</code></td><td>All review content</td></tr>
+    <tr><td><code>scripts/generate-reviews.mjs</code></td><td>Generates new reviews via the Anthropic API</td></tr>
+    <tr><td><code>lib/reviews.ts</code></td><td>Reads the review data for a given tool</td></tr>
+    <tr><td><code>app/tool/[slug]/page.tsx</code></td><td>Renders the review section when one exists</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 12: AI-Written Reviews</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>

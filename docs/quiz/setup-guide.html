@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tool Finder Quiz — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>&quot;Which AI Tool Is Right For You?&quot; Quiz</h1>
+  <p class="subtitle">Feature 8 of 13 — a 2-question tool finder, live at <code>/quiz</code>.</p>
+
+  <div class="badge-list">
+    <span class="badge">Zero configuration</span>
+    <span class="badge">No signup required</span>
+    <span class="badge">Fully client-side</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    Visitors answer two questions — their main goal, then their budget preference — and get up to 3 recommended
+    tools, featured tools prioritized. It's live and working with no setup required.
+  </p>
+
+  <h2><span class="num">2</span>How the matching works</h2>
+  <p>
+    Each goal ("Grow a YouTube/social video channel," "Write blogs, posts, or copy faster," etc.) maps to one
+    category in your catalog. If the visitor picks &quot;Free tools only,&quot; results are filtered to tools
+    without an affiliate link; otherwise all matching tools are shown, featured ones first.
+  </p>
+
+  <h2><span class="num">3</span>Customizing</h2>
+  <ul>
+    <li><strong>Add or change goals:</strong> edit the <code>GOAL_TO_CATEGORY</code> map at the top of <code>components/Quiz.tsx</code> — each key is a goal label shown to the visitor, each value must exactly match a category name in <code>data/products.json</code>.</li>
+    <li><strong>Add a third question:</strong> the component holds simple local state per question — follow the existing pattern (see how <code>budget</code> is handled) to add another filter step.</li>
+    <li><strong>Change how many results show:</strong> edit the <code>.slice(0, 3)</code> at the bottom of the filtering logic in <code>components/Quiz.tsx</code>.</li>
+  </ul>
+
+  <h2><span class="num">4</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>components/Quiz.tsx</code></td><td>All quiz logic and UI (questions, matching, results)</td></tr>
+    <tr><td><code>app/quiz/page.tsx</code></td><td>The page wrapper</td></tr>
+  </table>
+
+  <div class="callout good">
+    <strong>Ready out of the box</strong>
+    No environment variables, no external services. Tested end-to-end (goal → budget → results) before shipping.
+  </div>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 8: Tool Finder Quiz</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>

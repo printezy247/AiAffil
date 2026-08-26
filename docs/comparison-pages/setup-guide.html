@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Auto-Generated Comparison Pages — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Auto-Generated &quot;X vs Y&quot; Comparison Pages</h1>
+  <p class="subtitle">Feature 9 of 13 — 139 SEO pages generated automatically from your existing catalog data.</p>
+
+  <div class="badge-list">
+    <span class="badge">139 pages, zero manual writing</span>
+    <span class="badge">No fabricated claims</span>
+    <span class="badge">Auto-updates with your catalog</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    For every category, up to 6 tools (featured ones first) are paired up into every combination, generating a
+    dedicated page at <code>/compare/tool-a-vs-tool-b</code> for each pair — 139 pages total today. Each page shows
+    both tools side by side using their real descriptions and affiliate status — nothing is invented or guessed
+    about features neither tool's description actually mentions.
+  </p>
+
+  <div class="callout info">
+    <strong>Why capped at 6 tools per category?</strong>
+    Your largest category has 55 tools — pairing all of them would generate 1,485 pages just for that one category.
+    Capping at 6 (featured tools prioritized) keeps the page count reasonable (139 total) while still covering your
+    most important tools. Raise or lower <code>MAX_TOOLS_PER_CATEGORY</code> in <code>lib/comparisons.ts</code> if
+    you want more or fewer.
+  </div>
+
+  <h2><span class="num">2</span>Nothing to configure</h2>
+  <p>
+    These pages regenerate automatically on every deploy based on whatever's in <code>data/products.json</code> —
+    mark more tools <code>&quot;featured&quot;: true</code> and they'll start appearing in more comparison pairs
+    automatically.
+  </p>
+
+  <h2><span class="num">3</span>Where they're linked from</h2>
+  <p>
+    Each tool's own page (<code>/tool/[slug]</code>) shows &quot;vs [other tool]&quot; buttons for every comparison
+    it's part of, so these pages aren't orphaned — they're discoverable from normal browsing, not just the sitemap.
+  </p>
+
+  <h2><span class="num">4</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>lib/comparisons.ts</code></td><td>Generates the pairs and the shortlist-per-category logic</td></tr>
+    <tr><td><code>app/compare/[pair]/page.tsx</code></td><td>The comparison page layout</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 9: Comparison Pages</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>

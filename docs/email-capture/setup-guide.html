@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Email Capture — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Email Capture + Drip Sequence</h1>
+  <p class="subtitle">Feature 13 of 13 — homepage signup form, plus a ready-to-use 5-email welcome sequence.</p>
+
+  <div class="badge-list">
+    <span class="badge">Works with zero setup</span>
+    <span class="badge">ConvertKit integration built in</span>
+    <span class="badge">5-email sequence included</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    A signup form on the homepage collects email addresses. Right now (no email provider connected), addresses are
+    safely stored and viewable on your <code>/admin/links</code> dashboard — but <strong>no emails are actually
+    sent</strong> until you connect a real provider. Connect ConvertKit and it starts working immediately.
+  </p>
+
+  <div class="callout warn">
+    <strong>Important: addresses aren't emailed to anyone automatically yet</strong>
+    Without a connected provider, this only <em>collects</em> emails — it doesn't send anything. Follow step 2
+    below to actually start delivering the welcome sequence.
+  </div>
+
+  <h2><span class="num">2</span>Connect ConvertKit (recommended path)</h2>
+  <div class="grid-3">
+    <div class="step">
+      <div class="step-num">STEP 1</div>
+      <div class="step-title">Create a form</div>
+      Sign up at <a href="https://convertkit.com">convertkit.com</a> (free up to 1,000 subscribers), create a form, note its Form ID from the form's settings/embed code.
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 2</div>
+      <div class="step-title">Set 2 env vars</div>
+      <code>CONVERTKIT_API_KEY</code> (Account Settings → Developer) and <code>CONVERTKIT_FORM_ID</code>, then redeploy.
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 3</div>
+      <div class="step-title">Load the sequence</div>
+      In ConvertKit, create an Automation triggered by that form, and add the 5 emails from <code>docs/email-capture/drip-sequence.md</code> with the suggested delays.
+    </div>
+  </div>
+
+  <h2><span class="num">3</span>Using a different provider</h2>
+  <p>
+    Using Mailchimp, IContact, or another provider instead? Edit the fallback block in
+    <code>app/api/subscribe/route.ts</code> — swap the ConvertKit <code>fetch</code> call for that provider's API
+    (most have a simple "add subscriber to list" REST endpoint). The email-collection form itself doesn't need any
+    changes.
+  </p>
+
+  <h2><span class="num">4</span>The 5-email sequence</h2>
+  <p>
+    Already written and ready to paste in: <code>docs/email-capture/drip-sequence.md</code>. Covers a welcome
+    email, a mindset/how-to-use-this-list email, a highlight of an underrated category, a plug for the free tools,
+    and a wrap-up that invites replies and points to your Telegram channel.
+  </p>
+
+  <h2><span class="num">5</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>components/EmailCapture.tsx</code></td><td>The signup form UI</td></tr>
+    <tr><td><code>app/api/subscribe/route.ts</code></td><td>Handles submissions — ConvertKit or local storage fallback</td></tr>
+    <tr><td><code>docs/email-capture/drip-sequence.md</code></td><td>The 5 ready-to-paste emails</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 13: Email Capture</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>
