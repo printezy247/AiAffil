@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Telegram Mini App — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Telegram Mini App</h1>
+  <p class="subtitle">Feature 3 of 13 — your full tool catalog, opening inside Telegram itself.</p>
+
+  <div class="badge-list">
+    <span class="badge">No app store</span>
+    <span class="badge">No extra hosting</span>
+    <span class="badge">Matches user's theme automatically</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    A Mini App is a normal web page that opens <em>inside</em> Telegram's own interface — no browser tab, no app
+    install. Your catalog now has a version at <code>/telegram</code> built specifically for this: it detects
+    Telegram's theme (light/dark/custom) and repaints itself to match, shows a personalized "Hey, [name]"
+    greeting, and every tool tap opens correctly through Telegram's own link handler.
+  </p>
+  <p>It uses no different data — same <code>data/products.json</code> catalog as the website and the daily bot post.</p>
+
+  <h2><span class="num">2</span>Deploy first</h2>
+  <div class="callout warn">
+    <strong>Telegram requires HTTPS</strong>
+    Mini Apps only work over a real public HTTPS URL — Telegram will not load <code>localhost</code>. Deploy the
+    site (see the main README's "Put it online for free" section) before doing the steps below. You'll need your
+    live URL, e.g. <code>https://yourdomain.com</code>.
+  </div>
+
+  <h2><span class="num">3</span>Register it with BotFather</h2>
+  <p>Uses the same bot you already created for the daily poster (feature 1). Two ways to attach a Mini App to it — pick one:</p>
+
+  <div class="grid-3">
+    <div class="step">
+      <div class="step-num">OPTION A — SIMPLEST</div>
+      <div class="step-title">Menu Button</div>
+      Message <code>@BotFather</code> → <code>/mybots</code> → select your bot → <strong>Bot Settings</strong> → <strong>Menu Button</strong> → <strong>Configure Menu Button</strong> → paste <code>https://yourdomain.com/telegram</code> and a label like "Open App".
+    </div>
+    <div class="step">
+      <div class="step-num">OPTION B — SHAREABLE</div>
+      <div class="step-title">/newapp</div>
+      Message <code>@BotFather</code> → <code>/newapp</code> → follow the prompts (short name, title, description, icon, then the same <code>/telegram</code> URL). This gives you a shareable link like <code>t.me/yourbot/appname</code>.
+    </div>
+    <div class="step">
+      <div class="step-num">EITHER WAY</div>
+      <div class="step-title">Test it</div>
+      Open a chat with your own bot in Telegram (mobile app works best) and tap the menu button / app link. Your catalog should open inside Telegram, themed to match your Telegram app.
+    </div>
+  </div>
+
+  <h2><span class="num">4</span>How the theming works (for reference, no setup needed)</h2>
+  <p>
+    Telegram passes theme colors and user info to the page automatically once it loads — no configuration required.
+    The relevant code:
+  </p>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>app/telegram/page.tsx</code></td><td>The Mini App route</td></tr>
+    <tr><td><code>components/TelegramMiniApp.tsx</code></td><td>The catalog UI shown inside Telegram</td></tr>
+    <tr><td><code>components/TelegramWebApp.tsx</code></td><td>Loads Telegram's SDK, reads theme colors and user info</td></tr>
+    <tr><td><code>components/SiteChrome.tsx</code></td><td>Hides the normal website nav/footer on this one route</td></tr>
+  </table>
+
+  <div class="callout info">
+    <strong>Previewing without Telegram</strong>
+    Visiting <code>yourdomain.com/telegram</code> in a normal desktop browser still works — it just falls back to
+    light/dark based on your system theme, with no personalized greeting, since there's no real Telegram client
+    to read data from.
+  </div>
+
+  <h2><span class="num">5</span>Customizing it</h2>
+  <ul>
+    <li><strong>Change what's shown:</strong> edit <code>components/TelegramMiniApp.tsx</code> — it's a normal React component.</li>
+    <li><strong>Change the icon/name Telegram shows:</strong> re-run <code>/newapp</code>'s settings via BotFather → <code>/myapps</code>.</li>
+    <li><strong>Add a native-feeling action button:</strong> Telegram's SDK has a <code>MainButton</code> API (not wired up yet) — ask to have it added if you want e.g. a persistent "Suggest a Tool" button.</li>
+  </ul>
+
+  <h2><span class="num">6</span>Troubleshooting</h2>
+  <table>
+    <tr><th>Problem</th><th>Fix</th></tr>
+    <tr><td>Menu button does nothing</td><td>Double-check the URL you gave BotFather is your real deployed HTTPS domain, not localhost</td></tr>
+    <tr><td>Opens but looks like a plain website (nav/footer visible)</td><td>Make sure you're opening <code>/telegram</code>, not the homepage <code>/</code></td></tr>
+    <tr><td>Colors look wrong</td><td>Telegram itself controls these via the user's chosen theme — try switching your own Telegram app's theme to see it update</td></tr>
+    <tr><td>Tapping a tool does nothing</td><td>Update to the latest Telegram app version — older clients may not support <code>openLink</code></td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 3: Telegram Mini App</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>
