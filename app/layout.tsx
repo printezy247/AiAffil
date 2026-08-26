@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SiteNav } from "@/components/SiteNav";
-import { SiteFooter } from "@/components/SiteFooter";
+import { SiteChrome } from "@/components/SiteChrome";
 import { Analytics } from "@/components/Analytics";
 import { siteConfig } from "@/lib/site-config";
 
@@ -32,9 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Analytics />
-        <SiteNav />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

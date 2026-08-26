@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Telegram Mini App theme variables (see components/TelegramWebApp.tsx).
+   Fall back to the site's normal colors when not running inside Telegram. */
+:root {
+  --tg-bg: var(--background);
+  --tg-secondary-bg: var(--background);
+  --tg-text: var(--foreground);
+  --tg-hint: #6b7280;
+  --tg-link: #4f46e5;
+  --tg-button: #4f46e5;
+  --tg-button-text: #ffffff;
+}
