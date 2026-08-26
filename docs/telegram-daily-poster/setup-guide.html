@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Telegram Daily Tool Poster — Setup Guide</title>
+<link rel="stylesheet" href="../assets/doc-style.css" />
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AI Tool Vault</div>
+    <div class="doc-kind">Setup Guide · Internal</div>
+  </div>
+
+  <h1>Telegram Daily Tool Poster</h1>
+  <p class="subtitle">Feature 1 &amp; 2 of 13 — automated daily posts to your Telegram channel with click-tracked buttons.</p>
+
+  <div class="badge-list">
+    <span class="badge">No server required</span>
+    <span class="badge">Free (GitHub Actions)</span>
+    <span class="badge">Click tracking included</span>
+  </div>
+
+  <h2><span class="num">1</span>What this does</h2>
+  <p>
+    A script picks one tool from your catalog every day — deterministically, so it rotates through
+    your whole list before repeating — and posts it to your Telegram channel with a "Visit" button.
+    That button routes through your site's <code>/go/[slug]</code> link, the same click-tracked
+    redirect the website itself uses, so Telegram clicks show up alongside website clicks.
+  </p>
+  <p>It runs automatically, once a day, on GitHub's own servers — you don't need to keep a computer or server running.</p>
+
+  <h2><span class="num">2</span>Create your Telegram bot</h2>
+  <div class="grid-3">
+    <div class="step">
+      <div class="step-num">STEP 1</div>
+      <div class="step-title">Message BotFather</div>
+      Open Telegram, search for <code>@BotFather</code>, and start a chat. Send the command <code>/newbot</code>.
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 2</div>
+      <div class="step-title">Name it &amp; get a token</div>
+      Follow the prompts (pick a display name and a unique username ending in "bot"). BotFather replies with a token that looks like <code>123456789:AAExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>. Copy it.
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 3</div>
+      <div class="step-title">Add it to your channel</div>
+      Open your Telegram channel → Administrators → Add Admin → search for your bot's username → give it permission to post messages.
+    </div>
+  </div>
+
+  <div class="callout info">
+    <strong>Finding your channel ID</strong>
+    If your channel has a public username, it's simply <code>@yourchannelname</code>. If it's private, forward any message from the channel to <code>@userinfobot</code> to get its numeric ID (looks like <code>-1001234567890</code>).
+  </div>
+
+  <h2><span class="num">3</span>Connect it to your site's code</h2>
+  <p>In your GitHub repository:</p>
+  <ol>
+    <li>Go to <strong>Settings → Secrets and variables → Actions</strong></li>
+    <li>Click <strong>New repository secret</strong>, name it <code>TELEGRAM_BOT_TOKEN</code>, paste your bot token</li>
+    <li>Repeat for <code>TELEGRAM_CHANNEL_ID</code>, using your channel's @username or numeric ID</li>
+  </ol>
+
+  <div class="callout good">
+    <strong>That's it — it's now live.</strong>
+    The workflow file <code>.github/workflows/telegram-daily-post.yml</code> already runs
+    <code>scripts/telegram-post.mjs</code> every day at 15:00 UTC. Edit the <code>cron</code> line in that
+    file to change the time.
+  </div>
+
+  <h2><span class="num">4</span>Test it before going live</h2>
+  <p>Preview exactly what will be posted today, with no bot token needed and nothing actually sent:</p>
+  <pre><code>node scripts/telegram-post.mjs --dry-run</code></pre>
+  <p>Once your secrets are set, you can also trigger a real post immediately (don't wait for the daily schedule) from GitHub: <strong>Actions tab → "Telegram daily tool post" → Run workflow</strong>.</p>
+
+  <h2><span class="num">5</span>Where the code lives</h2>
+  <table>
+    <tr><th>File</th><th>Purpose</th></tr>
+    <tr><td><code>scripts/telegram-post.mjs</code></td><td>Picks today's tool and posts it</td></tr>
+    <tr><td><code>.github/workflows/telegram-daily-post.yml</code></td><td>Free daily scheduler (GitHub Actions)</td></tr>
+    <tr><td><code>data/products.json</code></td><td>The tool list it picks from — same file the website uses</td></tr>
+    <tr><td><code>app/go/[slug]/route.ts</code></td><td>The click-tracked redirect the button links to</td></tr>
+  </table>
+
+  <h2><span class="num">6</span>Troubleshooting</h2>
+  <table>
+    <tr><th>Problem</th><th>Fix</th></tr>
+    <tr><td>Nothing posted, workflow shows red ✕</td><td>Check both secrets are spelled exactly right, and the bot is an <em>admin</em> of the channel (not just a member)</td></tr>
+    <tr><td>"chat not found" error</td><td>Your channel ID is wrong — re-check the @userinfobot trick above</td></tr>
+    <tr><td>Post looks wrong / cut off</td><td>Edit the <code>text</code> template inside <code>scripts/telegram-post.mjs</code></td></tr>
+    <tr><td>Want a different time</td><td>Edit the <code>cron</code> line in the workflow file — cron times are UTC</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>AI Tool Vault — Feature 1/2: Telegram Daily Tool Poster</span>
+    <span>Internal setup guide</span>
+  </div>
+
+</div>
+</body>
+</html>
