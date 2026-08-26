@@ -1,0 +1,25 @@
+name: Telegram daily tool post
+
+# Runs scripts/telegram-post.mjs once a day for free using GitHub's own
+# servers — no hosting needed. Setup (see README "Telegram" section):
+#   1. Repo -> Settings -> Secrets and variables -> Actions -> New repository secret
+#   2. Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHANNEL_ID
+# You can also trigger it manually any time from the Actions tab (the
+# workflow_dispatch trigger below adds a "Run workflow" button there).
+on:
+  schedule:
+    - cron: "0 15 * * *" # 15:00 UTC daily — edit to change the posting time
+  workflow_dispatch: {}
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/telegram-post.mjs
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
