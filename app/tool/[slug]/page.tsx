@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { categorySlug, getProductBySlug, getRelatedProducts, products } from "@/lib/products";
 import { getComparisonsForProduct } from "@/lib/comparisons";
+import { getReviewForSlug } from "@/lib/reviews";
 import { ProductCard } from "@/components/ProductCard";
 
 export function generateStaticParams() {
@@ -26,6 +27,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
   const related = getRelatedProducts(product);
   const comparisons = getComparisonsForProduct(product.slug);
+  const review = getReviewForSlug(product.slug);
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -62,6 +64,17 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               </Link>
             );
           })}
+        </div>
+      )}
+
+      {review && (
+        <div className="mt-14 border-t border-black/10 pt-10 dark:border-white/10">
+          <h2 className="mb-4 text-xl font-semibold">{review.title}</h2>
+          <div className="flex flex-col gap-4 text-black/70 dark:text-white/70">
+            {review.body.split("\n\n").map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       )}
 
