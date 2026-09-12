@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/readme/hero.svg" alt="AiAffil. Your AI affiliate business, ready to run." width="100%">
+  <img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/hero.svg" alt="AiAffil. Your AI affiliate business, ready to run." width="100%">
 </p>
 
 <p align="center">
@@ -42,7 +42,7 @@
 
 <a name="features"></a>
 
-![Features](public/readme/banner-features.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-features.svg" alt="Features" width="100%">
 
 <br>
 
@@ -99,9 +99,13 @@ Before you publish, swap the starter affiliate links for your own. The starter d
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="whats-in-this-project"></a>
 
-![Project structure](public/readme/banner-architecture.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-architecture.svg" alt="Project structure" width="100%">
 
 <br>
 
@@ -109,7 +113,7 @@ Before you publish, swap the starter affiliate links for your own. The starter d
 app/
   page.tsx               Homepage — hero, featured tools, search + filters
   category/[slug]/       One page per category
-  tool/[slug]/           One page per tool — good for SEO
+  tool/[slug]/           One page per a tool — good for SEO
   go/[slug]/             Outbound link redirector for tracking
   disclosure/            Legally-required affiliate disclosure page
   sitemap.ts             Auto-generated sitemap.xml for Google
@@ -128,9 +132,13 @@ scripts/
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="quickstart"></a>
 
-![Quick start](public/readme/banner-quickstart.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-quickstart.svg" alt="Quick start" width="100%">
 
 <br>
 
@@ -161,9 +169,13 @@ npm run lint    # code style check
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="config"></a>
 
-![Configuration](public/readme/banner-config.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-config.svg" alt="Configuration" width="100%">
 
 <br>
 
@@ -202,9 +214,13 @@ Or in Vercel: **your project → Settings → Environment Variables**. <code>com
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="affiliate-links"></a>
 
-![Affiliate links](public/readme/banner-affiliate.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-affiliate.svg" alt="Affiliate links" width="100%">
 
 <br>
 
@@ -224,9 +240,13 @@ This is naturally gradual work. Many affiliate marketers start with 5–10 tools
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="business"></a>
 
-![Business model](public/readme/banner-business.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-business.svg" alt="Business model" width="100%">
 
 <br>
 
@@ -245,9 +265,13 @@ This is naturally gradual work. Many affiliate marketers start with 5–10 tools
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="deploy"></a>
 
-![Deploy](public/readme/banner-deploy.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-deploy.svg" alt="Deploy" width="100%">
 
 <br>
 
@@ -272,9 +296,13 @@ A <code>.com</code> domain costs about $10–15/year from [Namecheap](https://ww
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="architecture"></a>
 
-![Architecture](public/readme/banner-architecture.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-architecture.svg" alt="Architecture" width="100%">
 
 <br>
 
@@ -308,9 +336,13 @@ scripts/
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="legal"></a>
 
-![Legal &amp; compliance](public/readme/banner-legal.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-legal.svg" alt="Legal &amp; compliance" width="100%">
 
 <br>
 
@@ -325,9 +357,13 @@ Keep both. If you promote specific tools on social media, add a short disclosure
 
 <br>
 
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/divider.svg" alt="" width="100%">
+
+<br>
+
 <a name="fresh"></a>
 
-![Fresh catalog](public/readme/banner-fresh.svg)
+<img src="https://raw.githubusercontent.com/printezy247/AiAffil/main/public/readme/banner-fresh.svg" alt="Fresh catalog" width="100%">
 
 <br>
 
