@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 80">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="50%" stop-color="#111833"/>
+      <stop offset="100%" stop-color="#0a0e27"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="80" rx="12" fill="url(#bg)"/>
+  <!-- 3D rocket icon -->
+  <g transform="translate(30, 10)" filter="url(#glow)">
+    <!-- Rocket body -->
+    <path d="M25,5 L35,15 L35,35 L30,45 L20,45 L15,35 L15,15 Z" fill="none" stroke="#10b981" stroke-width="2"/>
+    <!-- Nose cone -->
+    <path d="M15,15 L25,5 L35,15" fill="#10b981" opacity="0.3"/>
+    <!-- Window -->
+    <circle cx="25" cy="23" r="4" fill="none" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="25" cy="23" r="1.5" fill="#10b981" opacity="0.6"/>
+    <!-- Fins -->
+    <path d="M15,30 L8,40 L15,38" fill="#10b981" opacity="0.4"/>
+    <path d="M35,30 L42,40 L35,38" fill="#10b981" opacity="0.4"/>
+    <!-- Flame -->
+    <path d="M20,45 L25,58 L30,45" fill="#f59e0b" opacity="0.6"/>
+    <path d="M22,45 L25,53 L28,45" fill="#ef4444" opacity="0.5"/>
+  </g>
+  <text x="100" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white">Quick start</text>
+  <line x1="280" y1="40" x2="870" y2="40" stroke="#10b981" stroke-width="1" opacity="0.15"/>
+  <rect width="900" height="80" rx="12" fill="none" stroke="#10b981" stroke-width="1" stroke-opacity="0.1"/>
+</svg>
