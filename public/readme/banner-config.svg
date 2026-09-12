@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 80">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="50%" stop-color="#111833"/>
+      <stop offset="100%" stop-color="#0a0e27"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="80" rx="12" fill="url(#bg)"/>
+  <!-- 3D gear icon -->
+  <g transform="translate(30, 12)" filter="url(#glow)">
+    <!-- Outer gear teeth -->
+    <path d="M22,2 L28,2 L30,8 L36,10 L40,5 L44,9 L40,15 L42,20 L48,22 L48,28 L42,30 L40,36 L44,40 L40,44 L36,40 L30,42 L28,48 L22,48 L20,42 L14,40 L10,44 L6,40 L10,36 L8,30 L2,28 L2,22 L8,20 L10,15 L6,9 L10,5 L14,10 L20,8 Z" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <!-- Inner circle -->
+    <circle cx="25" cy="25" r="8" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Center dot -->
+    <circle cx="25" cy="25" r="3" fill="#f59e0b" opacity="0.5"/>
+  </g>
+  <text x="100" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white">Configuration</text>
+  <line x1="310" y1="40" x2="870" y2="40" stroke="#f59e0b" stroke-width="1" opacity="0.15"/>
+  <rect width="900" height="80" rx="12" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.1"/>
+</svg>
