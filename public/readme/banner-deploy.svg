@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 80">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="50%" stop-color="#111833"/>
+      <stop offset="100%" stop-color="#0a0e27"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="80" rx="12" fill="url(#bg)"/>
+  <!-- 3D cloud + arrow icon -->
+  <g transform="translate(25, 12)" filter="url(#glow)">
+    <!-- Cloud shape -->
+    <path d="M12,35 Q2,35 2,27 Q2,20 10,18 Q12,10 22,10 Q30,10 33,16 Q42,14 44,22 Q48,22 48,28 Q48,35 40,35 Z" fill="none" stroke="#3b82f6" stroke-width="2"/>
+    <!-- Upload arrow -->
+    <path d="M25,42 L25,24" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M20,29 L25,22 L30,29" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Speed lines -->
+    <line x1="10" y1="45" x2="18" y2="45" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+    <line x1="32" y1="45" x2="40" y2="45" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+  </g>
+  <text x="100" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white">Deploy</text>
+  <line x1="210" y1="40" x2="870" y2="40" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
+  <rect width="900" height="80" rx="12" fill="none" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.1"/>
+</svg>
