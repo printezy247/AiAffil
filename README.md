@@ -174,22 +174,22 @@ own program link once you've joined it.
 projects like this one for free.
 
 1. Create a free account at [github.com](https://github.com/join) if you
-   don't have one, and another at [vercel.com](https://vercel.com/signup)
-   (sign up with your GitHub account — one click).
+do not have one, and another at [vercel.com](https://vercel.com/signup)
+(sign up with your GitHub account — one click).
 2. Push this project to a new GitHub repository. In the terminal, inside the
-   project folder:
-   ```bash
-   git init
-   git add .
-   git commit -m "My AI affiliate site"
-   ```
-   Then create an empty repo on GitHub (click the "+" in the top right →
-   "New repository"), and follow the "…or push an existing repository"
-   instructions it shows you.
+project folder:
+```bash
+git init
+git add .
+git commit -m "My AI affiliate site"
+```
+Then create an empty repo on GitHub (click the "+" in the top right →
+"New repository"), and follow the "…or push an existing repository"
+instructions it shows you.
 3. In Vercel, click **Add New → Project**, pick that GitHub repo, leave every
-   setting on its default, and click **Deploy**.
+setting on its default, and click **Deploy**.
 4. A couple minutes later you'll get a live URL like
-   `https://your-project.vercel.app`. That's your site, live on the internet.
+`https://your-project.vercel.app`. That's your site, live on the internet.
 
 Any time you `git push` new changes, Vercel redeploys automatically.
 
@@ -221,23 +221,23 @@ to monetize it. Realistic paths, in rough order of effort-to-payoff for a
 beginner:
 
 - **SEO (slow, compounding, free).** This site is already built for it —
-  every tool has its own indexable page (`/tool/...`) and every category has
-  a landing page (`/category/...`), plus an auto-generated sitemap. Once
-  live, submit your sitemap (`yourdomain.com/sitemap.xml`) in
-  [Google Search Console](https://search.google.com/search-console) (free).
-  Expect months, not days, before search traffic shows up.
+every tool has its own indexable page (`/tool/...`) and every category has
+a landing page (`/category/...`), plus an auto-generated sitemap. Once
+live, submit your sitemap (`yourdomain.com/sitemap.xml`) in
+[Google Search Console](https://search.google.com/search-console) (free).
+Expect months, not days, before search traffic shows up.
 - **Content on one platform (faster, more work).** Short-form video (YouTube
-  Shorts/TikTok/Reels) reviewing or demoing one tool at a time, with your
-  site link in the description or bio, is how the original creator grew
-  this exact list. `Beacons` and `Stan Store` (both already in your catalog)
-  are built for exactly this "link in bio" use case.
+Shorts/TikTok/Reels) reviewing or demoing one tool at a time, with your
+site link in the description or bio, is how the original creator grew
+this exact list. `Beacons` and `Stan Store` (both already in your catalog)
+are built for exactly this "link in bio" use case.
 - **An email list (compounds over time).** Capture emails (a `Lead Pages` or
-  `IContact` signup form, both in your catalog) and send a weekly "tool I
-  tried this week" email — email lists convert far better than cold site
-  traffic.
+`IContact` signup form, both in your catalog) and send a weekly "tool I
+tried this week" email — email lists convert far better than cold site
+traffic.
 - **Paid ads (fastest, costs real money, riskiest for a beginner).** Not
-  recommended until organic traffic proves which tools/angles actually
-  convert.
+recommended until organic traffic proves which tools/angles actually
+convert.
 
 **Legal requirement, not optional:** U.S. FTC rules require you to disclose
 affiliate relationships clearly. This site already has a `/disclosure` page
@@ -280,16 +280,16 @@ Every "Visit" button routes through `/go/[tool-slug]` before redirecting to
 the real link (see `app/go/[slug]/route.ts`). Two levels of tracking:
 
 - **Free, built-in:** every redirect is logged to your server console. On
-  Vercel: **your project → Logs**, filter for `[click]`. Good enough to spot-
-  check that links work; not a real dashboard.
+Vercel: **your project → Logs**, filter for `[click]`. Good enough to spot-
+check that links work; not a real dashboard.
 - **Real analytics:** create a free [Google Analytics 4](https://analytics.google.com)
-  property, copy its Measurement ID (`G-XXXXXXX`), and either:
-  - add it as `NEXT_PUBLIC_GA_ID` in Vercel → your project → Settings →
-    Environment Variables, or
-  - copy `.env.example` to `.env.local` and set it there for local testing.
+property, copy its Measurement ID (`G-XXXXXXX`), and either:
+- add it as `NEXT_PUBLIC_GA_ID` in Vercel → your project → Settings →
+Environment Variables, or
+- copy `.env.example` to `.env.local` and set it there for local testing.
 
-  No code changes needed — `components/Analytics.tsx` picks it up
-  automatically and starts tracking pageviews.
+No code changes needed — `components/Analytics.tsx` picks it up
+automatically and starts tracking pageviews.
 
 For serious affiliate tracking (which *program* converts, not just which
 *page* got clicks), rely on the affiliate network's own dashboard (Impact,
