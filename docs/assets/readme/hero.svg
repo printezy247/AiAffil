@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-label="AI Tool Vault — your AI affiliate business, ready to run">
+  <title>AI Tool Vault</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#050816"/>
+      <stop offset="0.55" stop-color="#0b1030"/>
+      <stop offset="1" stop-color="#1a0b3a"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee">
+        <animate attributeName="stop-color" values="#22d3ee;#a78bfa;#22d3ee" dur="9s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="0.5" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#f472b6">
+        <animate attributeName="stop-color" values="#f472b6;#22d3ee;#f472b6" dur="9s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <radialGradient id="glowCyan" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowPink" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f472b6" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#f472b6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="faceTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e2a5a"/>
+      <stop offset="1" stop-color="#2b1b5e"/>
+    </linearGradient>
+    <linearGradient id="faceLeft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1a40"/>
+      <stop offset="1" stop-color="#070b22"/>
+    </linearGradient>
+    <linearGradient id="faceRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#151f4d"/>
+      <stop offset="1" stop-color="#0a0f2c"/>
+    </linearGradient>
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="380" rx="24" fill="url(#bg)"/>
+
+  <!-- perspective grid -->
+  <g>
+    <line x1="0" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="80" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="160" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="240" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="320" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="400" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="480" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="560" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="640" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="720" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="800" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="880" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="960" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="1040" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="1120" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="1200" y1="380" x2="600" y2="150" stroke="#22d3ee" stroke-opacity="0.10"/>
+    <line x1="0" y1="380" x2="1200" y2="380" stroke="#a78bfa" stroke-opacity="0.15"/>
+    <line x1="120" y1="352" x2="1080" y2="352" stroke="#a78bfa" stroke-opacity="0.12"/>
+    <line x1="220" y1="328" x2="980" y2="328" stroke="#a78bfa" stroke-opacity="0.10"/>
+    <line x1="310" y1="308" x2="890" y2="308" stroke="#a78bfa" stroke-opacity="0.09"/>
+    <line x1="380" y1="292" x2="820" y2="292" stroke="#a78bfa" stroke-opacity="0.08"/>
+    <line x1="435" y1="279" x2="765" y2="279" stroke="#a78bfa" stroke-opacity="0.07"/>
+    <line x1="480" y1="268" x2="720" y2="268" stroke="#a78bfa" stroke-opacity="0.06"/>
+  </g>
+
+  <!-- ambient glow orbs -->
+  <ellipse cx="150" cy="330" rx="420" ry="220" fill="url(#glowCyan)">
+    <animate attributeName="rx" values="420;470;420" dur="8s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="1080" cy="40" rx="380" ry="200" fill="url(#glowPink)">
+    <animate attributeName="rx" values="380;430;380" dur="10s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- isometric card 1: AI Tools catalog -->
+  <g transform="translate(680,105)" filter="url(#softGlow)">
+    <polygon points="0,26 160,0 186,13 26,39" fill="url(#faceTop)" stroke="url(#neon)" stroke-width="1.4"/>
+    <polygon points="0,26 26,39 26,149 0,136" fill="url(#faceLeft)" stroke="#22d3ee" stroke-opacity="0.35"/>
+    <polygon points="26,39 186,13 186,123 26,149" fill="url(#faceRight)" stroke="url(#neon)" stroke-width="1.2"/>
+  </g>
+  <g transform="translate(720,132)">
+    <rect x="6" y="6" width="100" height="10" rx="3" fill="#22d3ee" fill-opacity="0.7"/>
+    <rect x="6" y="22" width="80" height="10" rx="3" fill="#a78bfa" fill-opacity="0.6"/>
+    <rect x="6" y="38" width="90" height="10" rx="3" fill="#f472b6" fill-opacity="0.5"/>
+    <rect x="6" y="54" width="70" height="10" rx="3" fill="#22d3ee" fill-opacity="0.4"/>
+    <rect x="6" y="70" width="85" height="10" rx="3" fill="#a78bfa" fill-opacity="0.35"/>
+    <circle cx="120" cy="11" r="5" fill="#34d399">
+      <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- isometric card 2: analytics -->
+  <g transform="translate(880,195)" filter="url(#softGlow)">
+    <polygon points="0,26 140,0 166,13 26,39" fill="url(#faceTop)" stroke="url(#neon)" stroke-width="1.4"/>
+    <polygon points="0,26 26,39 26,129 0,116" fill="url(#faceLeft)" stroke="#22d3ee" stroke-opacity="0.35"/>
+    <polygon points="26,39 166,13 166,103 26,129" fill="url(#faceRight)" stroke="url(#neon)" stroke-width="1.2"/>
+  </g>
+  <g transform="translate(918,216)">
+    <rect x="4" y="50" width="10" height="30" rx="2" fill="#22d3ee" fill-opacity="0.8"/>
+    <rect x="22" y="35" width="10" height="45" rx="2" fill="#a78bfa" fill-opacity="0.8"/>
+    <rect x="40" y="20" width="10" height="60" rx="2" fill="#22d3ee" fill-opacity="0.8"/>
+    <rect x="58" y="10" width="10" height="70" rx="2" fill="#f472b6" fill-opacity="0.8"/>
+    <rect x="76" y="0" width="10" height="80" rx="2" fill="#22d3ee" fill-opacity="0.8"/>
+    <polyline points="0,65 20,50 40,35 60,20 80,5 100,-10" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="160">
+      <animate attributeName="stroke-dashoffset" values="160;0" dur="3s" repeatCount="indefinite"/>
+    </polyline>
+  </g>
+
+  <!-- isometric card 3: affiliate link -->
+  <g transform="translate(990,80)" filter="url(#softGlow)">
+    <polygon points="0,26 130,0 156,13 26,39" fill="url(#faceTop)" stroke="url(#neon)" stroke-width="1.4"/>
+    <polygon points="0,26 26,39 26,119 0,106" fill="url(#faceLeft)" stroke="#22d3ee" stroke-opacity="0.35"/>
+    <polygon points="26,39 156,13 156,93 26,119" fill="url(#faceRight)" stroke="url(#neon)" stroke-width="1.2"/>
+  </g>
+  <g transform="translate(1028,96)">
+    <circle cx="30" cy="30" r="22" fill="none" stroke="#34d399" stroke-width="2.5"/>
+    <text x="30" y="38" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#34d399" text-anchor="middle">$</text>
+    <circle cx="30" cy="8" r="4" fill="#f472b6">
+      <animateTransform attributeName="transform" type="rotate" from="0 30 30" to="360 30 30" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- connection lines -->
+  <g filter="url(#softGlow)">
+    <line x1="860" y1="190" x2="900" y2="210" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6 4">
+      <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="1000" y1="170" x2="1020" y2="120" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="6 4">
+      <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- wordmark -->
+  <text x="72" y="168" font-family="Segoe UI, Inter, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="96" font-weight="800" letter-spacing="-2" fill="url(#neon)" filter="url(#glow)">AI Tool Vault</text>
+  <text x="76" y="216" font-family="Segoe UI, Inter, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" font-weight="500" fill="#e2e8f0">Your AI affiliate business, ready to run.</text>
+  <text x="76" y="258" font-family="Segoe UI, Inter, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="400" fill="#94a3b8" letter-spacing="3">165+ TOOLS  ·  SEO BUILT-IN  ·  CLICK TRACKING  ·  NEXT.JS  ·  FREE DEPLOY</text>
+  <rect x="76" y="278" width="420" height="3" rx="1.5" fill="url(#neon)"/>
+
+  <!-- animated sweep -->
+  <rect x="0" y="0" width="300" height="380" fill="url(#sweep)" opacity="0.6">
+    <animate attributeName="x" values="-300;1200" dur="7s" repeatCount="indefinite"/>
+  </rect>
+</svg>
