@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="docs/readme/hero.svg" alt="AiAffil. Your AI affiliate business, ready to run." width="100%">
-</p>
-
-<p align="center">
   <b>A ready-to-run AI affiliate site with SEO plumbing, click tracking, and FTC compliance built in.</b><br>
   Curated AI tools by category · per-tool SEO pages · outbound redirect tracking · disclosure &amp; sitemap out of the box.
 </p>
@@ -42,9 +38,7 @@
 
 <a name="features"></a>
 
-<img src="docs/readme/banner-features.svg" alt="Features" width="100%">
-
-<br>
+## ✨ Features
 
 Every feature is wired end-to-end. No stubs, no placeholders that need a backend to work.
 
@@ -101,9 +95,7 @@ Before you publish, swap the starter affiliate links for your own. The starter d
 
 <a name="whats-in-this-project"></a>
 
-<img src="docs/readme/banner-architecture.svg" alt="Project structure" width="100%">
-
-<br>
+## 🛠️ What's in this project
 
 ```text
 app/
@@ -130,9 +122,7 @@ scripts/
 
 <a name="quickstart"></a>
 
-<img src="docs/readme/banner-quickstart.svg" alt="Quick start" width="100%">
-
-<br>
+## 🚀 Quick start
 
 You need two free programs: **Node.js** (to run the project) and a code editor like **VS Code**.
 
@@ -163,9 +153,7 @@ npm run lint    # code style check
 
 <a name="config"></a>
 
-<img src="docs/readme/banner-config.svg" alt="Configuration" width="100%">
-
-<br>
+## ⚙️ Configuration
 
 Open <code>lib/site-config.ts</code>. Every public value on the site flows from this file.
 
@@ -204,9 +192,7 @@ Or in Vercel: **your project → Settings → Environment Variables**. <code>com
 
 <a name="affiliate-links"></a>
 
-<img src="docs/readme/banner-important.svg" alt="Get your own affiliate links" width="100%">
-
-<br>
+## 🔗 Get your own affiliate links
 
 **Read this before you publish.** The starter data in <code>data/products.json</code> was built from a spreadsheet a YouTuber shared publicly. Most of those links are <b>that creator's own affiliate links</b> — if you publish the site as-is, clicks and signups earn commissions for <i>them</i>, not you.
 
@@ -226,9 +212,7 @@ This is naturally gradual work. Many affiliate marketers start with 5–10 tools
 
 <a name="business"></a>
 
-<img src="docs/readme/banner-business.svg" alt="Understand the business" width="100%">
-
-<br>
+## 📈 Understand the business
 
 **How the money works.** You link to a tool using your affiliate link. A visitor clicks, signs up (sometimes needs to become a paying customer, depending on the program), and the company pays you a commission — sometimes a flat bounty, often a recurring percentage of what that customer pays for as long as they stay subscribed. That is why AI SaaS affiliate programs are attractive: one signup can pay out monthly for years.
 
@@ -247,9 +231,7 @@ This is naturally gradual work. Many affiliate marketers start with 5–10 tools
 
 <a name="deploy"></a>
 
-<img src="docs/readme/banner-deploy.svg" alt="Deploy to Vercel" width="100%">
-
-<br>
+## 🌐 Put it online
 
 [Vercel](https://vercel.com) is made by the creators of Next.js and hosts projects like this one for free.
 
@@ -274,9 +256,7 @@ A <code>.com</code> domain costs about $10–15/year from [Namecheap](https://ww
 
 <a name="architecture"></a>
 
-<img src="docs/readme/banner-architecture.svg" alt="Architecture" width="100%">
-
-<br>
+## 🏗️ Architecture
 
 **Request path.** Visitor hits <code>/tool/[slug]</code> → Next.js renders the page from <code>data/products.json</code> → meta tags, OG image, and canonical URL are set from site config → visitor clicks "Visit" → routes through <code>/go/[slug]</code> → logs the click → redirects to the affiliate URL.
 
@@ -310,9 +290,7 @@ scripts/
 
 <a name="legal"></a>
 
-<img src="docs/readme/banner-legal.svg" alt="Legal and compliance" width="100%">
-
-<br>
+## ⚖️ Legal &amp; compliance
 
 This site ships with two compliance layers:
 
@@ -327,9 +305,7 @@ Keep both. If you promote specific tools on social media, add a short disclosure
 
 <a name="fresh"></a>
 
-<img src="docs/readme/banner-fresh.svg" alt="Keep the catalog fresh" width="100%">
-
-<br>
+## 📦 Keep the catalog fresh
 
 An affiliate directory that never changes goes stale — new AI tools launch constantly, and being early to list a fast-growing tool is one of the few edges a small site has.
 
