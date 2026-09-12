@@ -122,7 +122,7 @@ saves the new tool straight into `data/products.json`. Restart `npm run dev`
 ```
 
 Copy an existing block, paste it, and edit the values (keep the commas!). Set
-`"featured": true` to pin a tool to the homepage's top row. `slug` must be
+"featured": true to pin a tool to the homepage's top row. `slug` must be
 unique and URL-safe (lowercase, hyphens, no spaces) — it becomes the tool's
 page address.
 
@@ -139,7 +139,7 @@ re-run `build-catalog.mjs`).
 An affiliate link only pays *you* if it contains *your* tracking code. Right
 now, roughly 80 tools in `data/products.json` carry another creator's codes
 (they look like `?via=Austin`, `bit.ly/xxxxTOOL`, `/austinarmstrong`, etc — the
-`"isAffiliateLink": true` flag marks all of them, and the site shows an
+"isAffiliateLink": true flag marks all of them, and the site shows an
 "Affiliate" badge on their cards). Here's how to swap them for your own, tool
 by tool:
 
@@ -151,7 +151,7 @@ by tool:
 3. Sign up (usually free, sometimes needs approval — a few days' wait is
    normal).
 4. Once approved, the dashboard gives you a unique tracking link.
-5. Open `data/products.json`, find that tool, and replace its `"url"` value
+5. Open `data/products.json`, find that tool, and replace its "url" value
    with your new link.
 
 This is naturally gradual work — many affiliate marketers start with 5-10
@@ -160,7 +160,7 @@ programs approved, and grow the list over time. You do not need all 165
 tools live on day one. A smaller, honest list you can vouch for converts
 better than a huge list of links you've never tried.
 
-Tools with `"isAffiliateLink": false` (mostly free utilities near the end of
+Tools with "isAffiliateLink": false (mostly free utilities near the end of
 the list, plus a few "🔥 High-demand pick" entries — see
 ["Keep the catalog fresh"](#7-keep-the-catalog-fresh-with-in-demand-tools) below) don't need this —
 they either have no commission to earn, or are flagged for you to add your
