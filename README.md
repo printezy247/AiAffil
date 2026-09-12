@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="public/readme/hero.svg" alt="AiAffil. Your AI affiliate business, ready to run." width="100%">
+</p>
+
+<p align="center">
   <b>A ready-to-run AI affiliate site with SEO plumbing, click tracking, and FTC compliance built in.</b><br>
   Curated AI tools by category · per-tool SEO pages · outbound redirect tracking · disclosure &amp; sitemap out of the box.
 </p>
@@ -38,7 +42,9 @@
 
 <a name="features"></a>
 
-## ✨ Features
+![Features](public/readme/banner-features.svg)
+
+<br>
 
 Every feature is wired end-to-end. No stubs, no placeholders that need a backend to work.
 
@@ -95,7 +101,9 @@ Before you publish, swap the starter affiliate links for your own. The starter d
 
 <a name="whats-in-this-project"></a>
 
-## 🛠️ What's in this project
+![Project structure](public/readme/banner-architecture.svg)
+
+<br>
 
 ```text
 app/
@@ -122,7 +130,9 @@ scripts/
 
 <a name="quickstart"></a>
 
-## 🚀 Quick start
+![Quick start](public/readme/banner-quickstart.svg)
+
+<br>
 
 You need two free programs: **Node.js** (to run the project) and a code editor like **VS Code**.
 
@@ -153,7 +163,9 @@ npm run lint    # code style check
 
 <a name="config"></a>
 
-## ⚙️ Configuration
+![Configuration](public/readme/banner-config.svg)
+
+<br>
 
 Open <code>lib/site-config.ts</code>. Every public value on the site flows from this file.
 
@@ -192,7 +204,9 @@ Or in Vercel: **your project → Settings → Environment Variables**. <code>com
 
 <a name="affiliate-links"></a>
 
-## 🔗 Get your own affiliate links
+![Affiliate links](public/readme/banner-affiliate.svg)
+
+<br>
 
 **Read this before you publish.** The starter data in <code>data/products.json</code> was built from a spreadsheet a YouTuber shared publicly. Most of those links are <b>that creator's own affiliate links</b> — if you publish the site as-is, clicks and signups earn commissions for <i>them</i>, not you.
 
@@ -212,7 +226,9 @@ This is naturally gradual work. Many affiliate marketers start with 5–10 tools
 
 <a name="business"></a>
 
-## 📈 Understand the business
+![Business model](public/readme/banner-business.svg)
+
+<br>
 
 **How the money works.** You link to a tool using your affiliate link. A visitor clicks, signs up (sometimes needs to become a paying customer, depending on the program), and the company pays you a commission — sometimes a flat bounty, often a recurring percentage of what that customer pays for as long as they stay subscribed. That is why AI SaaS affiliate programs are attractive: one signup can pay out monthly for years.
 
@@ -231,7 +247,9 @@ This is naturally gradual work. Many affiliate marketers start with 5–10 tools
 
 <a name="deploy"></a>
 
-## 🌐 Put it online
+![Deploy](public/readme/banner-deploy.svg)
+
+<br>
 
 [Vercel](https://vercel.com) is made by the creators of Next.js and hosts projects like this one for free.
 
@@ -256,7 +274,9 @@ A <code>.com</code> domain costs about $10–15/year from [Namecheap](https://ww
 
 <a name="architecture"></a>
 
-## 🏗️ Architecture
+![Architecture](public/readme/banner-architecture.svg)
+
+<br>
 
 **Request path.** Visitor hits <code>/tool/[slug]</code> → Next.js renders the page from <code>data/products.json</code> → meta tags, OG image, and canonical URL are set from site config → visitor clicks "Visit" → routes through <code>/go/[slug]</code> → logs the click → redirects to the affiliate URL.
 
@@ -290,7 +310,9 @@ scripts/
 
 <a name="legal"></a>
 
-## ⚖️ Legal &amp; compliance
+![Legal &amp; compliance](public/readme/banner-legal.svg)
+
+<br>
 
 This site ships with two compliance layers:
 
@@ -305,7 +327,9 @@ Keep both. If you promote specific tools on social media, add a short disclosure
 
 <a name="fresh"></a>
 
-## 📦 Keep the catalog fresh
+![Fresh catalog](public/readme/banner-fresh.svg)
+
+<br>
 
 An affiliate directory that never changes goes stale — new AI tools launch constantly, and being early to list a fast-growing tool is one of the few edges a small site has.
 
