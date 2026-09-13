@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/readme/hero.svg" alt="AiAffil — AI affiliate site generator" width="100%">
+  <img src="public/readme/hero.svg" alt="AiAffil — AI affiliate site generator" width="100%">
 </p>
 
 <p align="center">
@@ -43,7 +43,7 @@
 
 <a name="features"></a>
 
-<img src="docs/readme/banner-features.svg" alt="Features" width="100%">
+<img src="public/readme/banner-features.svg" alt="Features" width="100%">
 
 <br>
 
@@ -98,7 +98,7 @@ The site is a static Next.js application. No server, no database, no build step 
 
 <a name="whats-in-this-project"></a>
 
-<img src="docs/readme/banner-project.svg" alt="Project structure" width="100%">
+<img src="public/readme/banner-project.svg" alt="Project structure" width="100%">
 
 <br>
 
@@ -127,7 +127,7 @@ scripts/
 
 <a name="quickstart"></a>
 
-<img src="docs/readme/banner-quickstart.svg" alt="Quick start" width="100%">
+<img src="public/readme/banner-quickstart.svg" alt="Quick start" width="100%">
 
 <br>
 
@@ -174,7 +174,7 @@ npm run lint    # code style check
 
 <a name="config"></a>
 
-<img src="docs/readme/banner-config.svg" alt="Configuration" width="100%">
+<img src="public/readme/banner-config.svg" alt="Configuration" width="100%">
 
 <br>
 
@@ -215,7 +215,7 @@ Or in Vercel: **your project → Settings → Environment Variables**. `componen
 
 <a name="affiliate-links"></a>
 
-<img src="docs/readme/banner-affiliate.svg" alt="Affiliate links" width="100%">
+<img src="public/readme/banner-affiliate.svg" alt="Affiliate links" width="100%">
 
 <br>
 
@@ -237,7 +237,7 @@ This is naturally gradual work. Many affiliate marketers start with 5–10 tools
 
 <a name="business"></a>
 
-<img src="docs/readme/banner-business.svg" alt="Understand the business" width="100%">
+<img src="public/readme/banner-business.svg" alt="Understand the business" width="100%">
 
 <br>
 
@@ -258,7 +258,7 @@ This is naturally gradual work. Many affiliate marketers start with 5–10 tools
 
 <a name="deploy"></a>
 
-<img src="docs/readme/banner-deploy.svg" alt="Deploy to Vercel" width="100%">
+<img src="public/readme/banner-deploy.svg" alt="Deploy to Vercel" width="100%">
 
 <br>
 
@@ -301,7 +301,7 @@ A `.com` domain costs about $10–15/year from [Namecheap](https://www.namecheap
 
 <a name="architecture"></a>
 
-<img src="docs/readme/banner-architecture.svg" alt="Architecture" width="100%">
+<img src="public/readme/banner-architecture.svg" alt="Architecture" width="100%">
 
 <br>
 
@@ -337,7 +337,7 @@ scripts/
 
 <a name="legal"></a>
 
-<img src="docs/readme/banner-legal.svg" alt="Legal & compliance" width="100%">
+<img src="public/readme/banner-legal.svg" alt="Legal & compliance" width="100%">
 
 <br>
 
@@ -354,7 +354,7 @@ Keep both. If you promote specific tools on social media, add a short disclosure
 
 <a name="fresh"></a>
 
-<img src="docs/readme/banner-fresh.svg" alt="Keep the catalog fresh" width="100%">
+<img src="public/readme/banner-fresh.svg" alt="Keep the catalog fresh" width="100%">
 
 <br>
 
