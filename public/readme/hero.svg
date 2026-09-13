@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#312e81;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#4338ca;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f0abfc;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f9a8d4;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" fill="url(#bg)" rx="16"/>
+  <g transform="translate(80, 60)">
+    <rect x="0" y="0" width="56" height="56" rx="12" fill="rgba(255,255,255,0.15)"/>
+    <path d="M14 14 L42 14 L28 42 L38 42 L24 14 Z" fill="white"/>
+    <rect x="78" y="18" width="220" height="20" rx="10" fill="rgba(255,255,255,0.9)"/>
+    <rect x="78" y="48" width="160" height="8" rx="4" fill="rgba(255,255,255,0.4)"/>
+  </g>
+  <g transform="translate(400, 50)">
+    <circle cx="40" cy="40" r="36" fill="rgba(255,255,255,0.1)"/>
+    <circle cx="40" cy="40" r="24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <circle cx="40" cy="40" r="12" fill="url(#accent)"/>
+    <circle cx="40" cy="40" r="4" fill="white"/>
+    <line x1="40" y1="16" x2="40" y2="64" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <line x1="4" y1="40" x2="76" y2="40" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  </g>
+  <g transform="translate(560, 50)">
+    <rect x="0" y="0" width="48" height="48" rx="10" fill="rgba(255,255,255,0.1)"/>
+    <path d="M12 12 L36 12 L36 20 L24 20 L24 36 L12 36 Z" fill="white"/>
+  </g>
+  <g transform="translate(680, 50)">
+    <rect x="0" y="0" width="48" height="48" rx="10" fill="rgba(255,255,255,0.1)"/>
+    <path d="M24 8 L40 32 L8 32 Z" fill="white"/>
+    <circle cx="24" cy="28" r="4" fill="url(#bg)"/>
+  </g>
+  <text x="800" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" fill="white">AI Affiliate Hub</text>
+  <text x="800" y="108" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="500" fill="url(#accent)">Curated AI tools · tracked affiliate links · built for SEO</text>
+  <g transform="translate(800, 150)">
+    <rect x="0" y="0" width="180" height="40" rx="20" fill="rgba(255,255,255,0.15)"/>
+    <text x="90" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="white" text-anchor="middle">165+ tools · 12 categories</text>
+  </g>
+  <g transform="translate(1010, 150)">
+    <rect x="0" y="0" width="150" height="40" rx="20" fill="rgba(255,255,255,0.1)"/>
+    <text x="75" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="white" text-anchor="middle">SEO-optimized</text>
+  </g>
+  <rect x="80" y="250" width="1040" height="2" rx="1" fill="rgba(255,255,255,0.15)"/>
+  <text x="80" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="rgba(255,255,255,0.6)">Static Next.js · Tailwind CSS · Vercel-ready · FTC-compliant</text>
+</svg>
