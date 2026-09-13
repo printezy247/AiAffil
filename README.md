@@ -98,8 +98,6 @@ The site is a static Next.js application. No server, no database, no build step 
 
 <a name="whats-in-this-project"></a>
 
-<img src="public/readme/banner-project.svg" alt="Project structure" width="100%">
-
 <br>
 
 ```text
