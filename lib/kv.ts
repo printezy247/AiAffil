@@ -14,6 +14,29 @@ const hasUpstash = Boolean(UPSTASH_URL && UPSTASH_TOKEN);
 
 const LOCAL_STORE_PATH = path.join(process.cwd(), ".local-kv-store.json");
 
+// Simple mutex for local filesystem operations to prevent race conditions
+// when multiple concurrent requests read/modify/write the local store.
+// This is only used in local fallback mode (no Upstash configured).
+let localFileLock = false;
+const lockWaitInterval = 10; // ms between retry attempts
+const lockTimeout = 2000; // max time to wait for lock (2 seconds)
+
+async function withFileLock<T>(operation: () => Promise<T>): Promise<T> {
+  const startTime = Date.now();
+  while (localFileLock) {
+    if (Date.now() - startTime > lockTimeout) {
+      throw new Error("Timeout waiting for local KV store lock");
+    }
+    await new Promise((resolve) => setTimeout(resolve, lockWaitInterval));
+  }
+  localFileLock = true;
+  try {
+    return await operation();
+  } finally {
+    localFileLock = false;
+  }
+}
+
 function readLocalStore(): Record<string, string> {
   try {
     return JSON.parse(fs.readFileSync(LOCAL_STORE_PATH, "utf8"));
@@ -46,6 +69,7 @@ export const kv = {
 
   async get(key: string): Promise<string | null> {
     if (hasUpstash) return (await upstash(["get", key])) as string | null;
+    // Read operations don't need locking since we read fresh each time
     return readLocalStore()[key] ?? null;
   },
 
@@ -54,18 +78,24 @@ export const kv = {
       await upstash(["set", key, value]);
       return;
     }
-    const store = readLocalStore();
-    store[key] = value;
-    writeLocalStore(store);
+    // Write operation — needs lock to prevent race conditions
+    await withFileLock(async () => {
+      const store = readLocalStore();
+      store[key] = value;
+      writeLocalStore(store);
+    });
   },
 
   async incr(key: string): Promise<number> {
     if (hasUpstash) return Number(await upstash(["incr", key]));
-    const store = readLocalStore();
-    const next = (Number(store[key]) || 0) + 1;
-    store[key] = String(next);
-    writeLocalStore(store);
-    return next;
+    // Atomic increment requires lock — read-modify-write must be serialized
+    return withFileLock(async () => {
+      const store = readLocalStore();
+      const next = (Number(store[key]) || 0) + 1;
+      store[key] = String(next);
+      writeLocalStore(store);
+      return next;
+    });
   },
 
   /** List all keys matching a prefix (used by the admin dashboard). Slow on
@@ -81,6 +111,7 @@ export const kv = {
       );
       return result;
     }
+    // Read operation — read fresh without locking
     const store = readLocalStore();
     return Object.fromEntries(Object.entries(store).filter(([k]) => k.startsWith(prefix)));
   },
